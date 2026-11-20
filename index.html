@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yayın Akışı</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🎙️ Yayın Akışı</h1>
+    <p>Canlı yayında bir bölüm uzarsa sonrakiler kısalmalı, yoksa program saatinde bitmez. Bölümleri yaz, hangilerinin esneyebileceğini söyle; yayın sırasında "Sonraki" tuşuna bas, gerisini ben hesaplayayım.</p>
+  </header>
+
+  <main>
+    <section class="sol">
+      <div class="kart">
+        <h2>Program</h2>
+        <div class="izgara uc">
+          <label>Adı <input id="ad" maxlength="40"></label>
+          <label>Başlangıç <input id="baslangic" inputmode="numeric" placeholder="20:00"></label>
+          <label>Kesin bitiş <input id="bitis" inputmode="numeric" placeholder="20:50"></label>
+        </div>
+        <p class="not" id="planOzet"></p>
+        <div class="tablo-kap">
+          <table class="bolumler">
+            <thead><tr><th>Bölüm</th><th>Süre</th><th>Esnek</th><th>En kısa</th><th>En uzun</th><th></th></tr></thead>
+            <tbody id="bolumler"></tbody>
+          </table>
+        </div>
+        <div class="dugmeler">
+          <button type="button" id="bolumEkle" class="ikinci">+ Bölüm ekle</button>
+          <button type="button" id="ornek" class="ikinci">Örnek koy</button>
+        </div>
+        <p class="not">Süreleri dakika:saniye yazıyorum (4:30). Sabit bölümler (reklam, şarkı) hiç değişmez. Her şey sadece bu tarayıcıda duruyor.</p>
+      </div>
+
+      <div class="kart">
+        <h2>Gecikme nasıl paylaşılsın?</h2>
+        <div class="secenekler">
+          <label class="secenek"><input type="radio" name="kip" value="oranli"> <span><b>Esnekliği oranında:</b> 5 dakika esneyebilen bölüm, 1 dakika esneyebilenden 5 kat fazla kısalır.</span></label>
+          <label class="secenek"><input type="radio" name="kip" value="esit"> <span><b>Eşit:</b> her esnek bölüm aynı saniye kadar kısalır; sınırına dayanan durur, kalanı diğerleri taşır.</span></label>
+        </div>
+      </div>
+    </section>
+
+    <section class="sag">
+      <div class="kart ozet" id="canli"></div>
+      <div class="kart">
+        <h2>Akış</h2>
+        <div id="cizelge"></div>
+        <div class="tablo-kap"><table class="akis" id="akis"></table></div>
+        <p class="not">"En geç" sütunu: o bölüm bu saatten sonra başlarsa, sonraki her şey en kısa haline insa bile program saatinde bitemez.</p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>
